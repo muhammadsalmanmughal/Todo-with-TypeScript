@@ -1,13 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC } from "react";
+import { InputField } from "./components";
 
-function App() {
+import { Row, Col } from "antd";
+import "antd/dist/antd.css";
+import "./App.css";
+
+const App: FC = () => {
   return (
-    <div className="App">
+    <Row gutter={[10,10]} className="App">
       Todo app with TypeScript.
-    </div>
+      <InputField />
+    </Row>
   );
-}
+};
 
 export default App;
