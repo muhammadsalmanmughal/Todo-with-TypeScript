@@ -1,7 +1,7 @@
 import React,{FC} from 'react'
-import { Button } from 'antd'
+import { Button,ButtonProps } from 'antd'
 
-const BasicButton:FC = ()=> {
+const BasicButton:FC<ButtonProps> = (props)=> {
     return(
         <Button>CLick Me</Button>
     )

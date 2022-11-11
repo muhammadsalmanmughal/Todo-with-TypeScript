@@ -1,9 +1,10 @@
 import React,{FC} from 'react'
-import { Input } from 'antd'
+import { Input, InputProps } from 'antd'
+import { TodoInputProps } from '../Interfaces'
 
-const InputField:FC = () => {
+const InputField:FC<InputProps & TodoInputProps> = ({placeholder,value,setTodo}) => {
     return(
-        <Input placeholder='Enter your todos'/>
+        <Input placeholder={placeholder} value={value} onChange={e => setTodo(e.target.value)}/>
     )
 }
 
