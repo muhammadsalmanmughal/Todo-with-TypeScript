@@ -1,4 +1,7 @@
 export interface TodoInputProps {
-value: string,
-setTodo:React.Dispatch<React.SetStateAction<string>>
+  value: string;
+  setTodo: React.Dispatch<React.SetStateAction<string>>;
+}
+export interface AddTodoButton {
+  addTodo: () => void;
 }
