@@ -3,7 +3,7 @@ export interface TodoInputProps {
   setTodo: React.Dispatch<React.SetStateAction<string>>;
 }
 export interface AddTodoButton {
-  addTodo: () => void;
+  onClick: () => void;
   text:string
 }
 export interface CustomeModalProps {

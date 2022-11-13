@@ -20,17 +20,19 @@ const TodoApp: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   const addTodo = () => {
-    setIsModalOpen(true)
-    // if (todo) {
-    //   setAllTodos([...allTodos, { todo }]);
-    //   setTodo("");
-    // } else {
-    //   alert("Enter Todo.");
-    // }
+    if (todo) {
+      setAllTodos([...allTodos, { todo }]);
+      setTodo("");
+    } else {
+      alert("Enter Todo.");
+    }
   };
 
   const onCloseModal = ():void => {
     setIsModalOpen(false)
+  }
+  const onOpenModal = ():void => {
+    setIsModalOpen(true)
   }
   return (
     <Row gutter={[10, 10]} className="App">
@@ -45,7 +47,7 @@ const TodoApp: FC = () => {
         />
       </Col>
       <Col span={24}>
-        <BasicButton addTodo={addTodo} text="Add Todo" />
+        <BasicButton onClick={onOpenModal} text="Add Todo" />
       </Col>
       <Col span={24}>
         {allTodos?.map((item) => {
