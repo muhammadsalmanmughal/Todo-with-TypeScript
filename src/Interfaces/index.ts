@@ -6,3 +6,7 @@ export interface AddTodoButton {
   addTodo: () => void;
   text:string
 }
+export interface CustomeModalProps {
+  onClose: () => void;
+  onOpen: boolean;
+}

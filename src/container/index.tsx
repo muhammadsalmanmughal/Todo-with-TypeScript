@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
-import { InputField, BasicButton } from "../components";
-import { Row, Col, Avatar, Card, Skeleton, Switch } from "antd";
+import { InputField, BasicButton,PopModal } from "../components";
+import { Row, Col, Card} from "antd";
 import {
   EditOutlined,
   EllipsisOutlined,
@@ -17,15 +17,21 @@ const TodoApp: FC = () => {
   }
   const [todo, setTodo] = useState<string>("");
   const [allTodos, setAllTodos] = useState<Todos[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   const addTodo = () => {
-    if (todo) {
-      setAllTodos([...allTodos, { todo }]);
-      setTodo("");
-    } else {
-      alert("Enter Todo.");
-    }
+    setIsModalOpen(true)
+    // if (todo) {
+    //   setAllTodos([...allTodos, { todo }]);
+    //   setTodo("");
+    // } else {
+    //   alert("Enter Todo.");
+    // }
   };
+
+  const onCloseModal = ():void => {
+    setIsModalOpen(false)
+  }
   return (
     <Row gutter={[10, 10]} className="App">
       <Col span={24}>
@@ -58,6 +64,9 @@ const TodoApp: FC = () => {
             </Card>
           );
         })}
+      </Col>
+      <Col span={24}>
+        <PopModal onOpen={isModalOpen} onClose={onCloseModal}/>
       </Col>
     </Row>
   );
