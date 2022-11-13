@@ -4,4 +4,5 @@ export interface TodoInputProps {
 }
 export interface AddTodoButton {
   addTodo: () => void;
+  text:string
 }

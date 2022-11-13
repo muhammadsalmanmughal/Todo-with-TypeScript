@@ -2,9 +2,9 @@ import React,{FC} from 'react'
 import { Button,ButtonProps } from 'antd'
 import {AddTodoButton} from '../Interfaces'
 
-const BasicButton:FC<ButtonProps & AddTodoButton> = ({addTodo})=> {
+const BasicButton:FC<ButtonProps & AddTodoButton> = ({addTodo,text,...rest})=> {
     return(
-        <Button onClick={addTodo}>CLick Me</Button>
+        <Button onClick={addTodo} {...rest}>{text}</Button>
     )
 }
 
