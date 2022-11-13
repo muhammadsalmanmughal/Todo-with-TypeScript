@@ -9,4 +9,8 @@ export interface AddTodoButton {
 export interface CustomeModalProps {
   onClose: () => void;
   onOpen: boolean;
+  getTodos (todo:string): string
+}
+export  interface Todos {
+  todo: string;
 }

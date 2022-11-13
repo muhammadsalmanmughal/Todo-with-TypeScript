@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import { InputField, BasicButton,PopModal } from "../components";
+import {Todos} from '../Interfaces'
 import { Row, Col, Card} from "antd";
 import {
   EditOutlined,
@@ -12,21 +13,13 @@ import "../App.css";
 
 const { Meta } = Card;
 const TodoApp: FC = () => {
-  interface Todos {
-    todo: string;
-  }
-  const [todo, setTodo] = useState<string>("");
   const [allTodos, setAllTodos] = useState<Todos[]>([]);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
-  const addTodo = () => {
-    if (todo) {
-      setAllTodos([...allTodos, { todo }]);
-      setTodo("");
-    } else {
-      alert("Enter Todo.");
-    }
-  };
+  const showTodos = (todos:string) => {
+    console.log('alltodo: ', typeof(todos));
+    setAllTodos([...allTodos, { todo:todos }]);
+  }
 
   const onCloseModal = ():void => {
     setIsModalOpen(false)
@@ -39,17 +32,17 @@ const TodoApp: FC = () => {
       <Col span={24}>
         <h2>Todo app with TypeScript.</h2>
       </Col>
-      <Col span={24}>
+      {/* <Col span={24}>
         <InputField
           value={todo}
           placeholder="Enter your todo"
           setTodo={setTodo}
         />
-      </Col>
+      </Col> */}
       <Col span={24}>
         <BasicButton onClick={onOpenModal} text="Add Todo" />
       </Col>
-      <Col span={24}>
+      {/* <Col span={24}>
         {allTodos?.map((item) => {
           return (
             <Card
@@ -60,15 +53,13 @@ const TodoApp: FC = () => {
                 <EllipsisOutlined key="ellipsis" />,
               ]}
             >
-              {/* <Skeleton loading={loading} avatar active> */}
               <Meta title="Card title" description={item.todo} />
-              {/* </Skeleton> */}
             </Card>
           );
         })}
-      </Col>
+      </Col> */}
       <Col span={24}>
-        <PopModal onOpen={isModalOpen} onClose={onCloseModal}/>
+        <PopModal onOpen={isModalOpen} onClose={onCloseModal} title='Add Todos' getTodos={(todo:string)=>showTodos(todo)}/>
       </Col>
     </Row>
   );
