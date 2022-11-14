@@ -19,6 +19,7 @@ const TodoApp: FC = () => {
   const showTodos = (todos:string) => {
     console.log('alltodo: ', typeof(todos));
     setAllTodos([...allTodos, { todo:todos }]);
+    setIsModalOpen(false)
   }
 
   const onCloseModal = ():void => {
@@ -42,7 +43,7 @@ const TodoApp: FC = () => {
       <Col span={24}>
         <BasicButton onClick={onOpenModal} text="Add Todo" />
       </Col>
-      {/* <Col span={24}>
+      <Col span={24}>
         {allTodos?.map((item) => {
           return (
             <Card
@@ -57,7 +58,7 @@ const TodoApp: FC = () => {
             </Card>
           );
         })}
-      </Col> */}
+      </Col>
       <Col span={24}>
         <PopModal onOpen={isModalOpen} onClose={onCloseModal} title='Add Todos' getTodos={(todo:string)=>showTodos(todo)}/>
       </Col>
