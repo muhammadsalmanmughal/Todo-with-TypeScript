@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { InputField, BasicButton,PopModal } from "../components";
-import {Todos} from '../Interfaces'
+import {Todos,SetTodos} from '../Interfaces'
 import { Row, Col, Card} from "antd";
 import {
   EditOutlined,
@@ -16,10 +16,10 @@ const TodoApp: FC = () => {
   const [allTodos, setAllTodos] = useState<Todos[]>([]);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
-  const showTodos = (todos:string) => {
-    console.log('alltodo: ', typeof(todos));
-    setAllTodos([...allTodos, { todo:todos }]);
-    setIsModalOpen(false)
+  const showTodos = (todos:SetTodos) => {
+    console.log('alltodo: ', todos);
+    // setAllTodos([...allTodos, { todo:todos }]);
+    // setIsModalOpen(false)
   }
 
   const onCloseModal = ():void => {
@@ -60,7 +60,7 @@ const TodoApp: FC = () => {
         })}
       </Col>
       <Col span={24}>
-        <PopModal onOpen={isModalOpen} onClose={onCloseModal} title='Add Todos' getTodos={(todo:string)=>showTodos(todo)}/>
+        <PopModal onOpen={isModalOpen} onClose={onCloseModal} title='Add Todos' getTodos={(todo:SetTodos)=>showTodos(todo)}/>
       </Col>
     </Row>
   );

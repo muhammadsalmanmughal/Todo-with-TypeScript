@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
-import { CustomeModalProps, Todos } from "../Interfaces";
-import { InputField,TextAreaField } from "../components";
+import { CustomeModalProps, Todos,SetTodos } from "../Interfaces";
+import { InputField, TextAreaField } from "../components";
 
 import { Modal, ModalProps, Row, Col } from "antd";
 
@@ -11,33 +11,33 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
   getTodos,
 }) => {
   const [todo, setTodo] = useState<string>("");
-  //   const [allTodos, setAllTodos] = useState<Todos[]>([]);
+  const [description, setDescription] = useState<string>("");
+    const [allTodos, setAllTodos] = useState<SetTodos>({todo:'', description:''});
 
   const addTodo = () => {
     if (todo) {
       //   setAllTodos([...allTodos, { todo }]);
-      getTodos(todo);
+      getTodos(allTodos);
       setTodo("");
+      setDescription("");
     }
   };
 
   return (
     <Modal title={title} open={onOpen} onCancel={onClose} onOk={addTodo}>
-      <Row gutter={[10,10]}>
+      <Row gutter={[10, 10]}>
         <Col span={24}>
           <label>Enter Name:</label>
           <InputField
             value={todo}
-            // placeholder="Enter your todo name"
             setTodo={setTodo}
           />
         </Col>
         <Col span={24}>
-        <label>Enter Description:</label>
+          <label>Enter Description:</label>
           <TextAreaField
-            value=''
-            // placeholder="Enter your todo description"
-            setTodo={setTodo}
+            value={description}
+            setDescription={setDescription}
           />
         </Col>
       </Row>
