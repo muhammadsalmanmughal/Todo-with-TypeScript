@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react";
 import { CustomeModalProps, Todos } from "../Interfaces";
-import { InputField } from "../components";
+import { InputField,TextAreaField } from "../components";
 
-import { Modal, ModalProps } from "antd";
+import { Modal, ModalProps, Row, Col } from "antd";
 
 const PopModal: FC<ModalProps & CustomeModalProps> = ({
   onOpen,
@@ -23,14 +23,24 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
 
   return (
     <Modal title={title} open={onOpen} onCancel={onClose} onOk={addTodo}>
-      <InputField
-        value={todo}
-        placeholder="Enter your todo"
-        setTodo={setTodo}
-      />
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
+      <Row gutter={[10,10]}>
+        <Col span={24}>
+          <label>Enter Name:</label>
+          <InputField
+            value={todo}
+            // placeholder="Enter your todo name"
+            setTodo={setTodo}
+          />
+        </Col>
+        <Col span={24}>
+        <label>Enter Description:</label>
+          <TextAreaField
+            value=''
+            // placeholder="Enter your todo description"
+            setTodo={setTodo}
+          />
+        </Col>
+      </Row>
     </Modal>
   );
 };

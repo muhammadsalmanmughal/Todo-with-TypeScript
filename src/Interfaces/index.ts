@@ -2,6 +2,10 @@ export interface TodoInputProps {
   value: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
 }
+export interface TodoTextAreaProps {
+  value: string;
+  setTodo: React.Dispatch<React.SetStateAction<string>>;
+}
 export interface AddTodoButton {
   onClick: () => void;
   text:string,

@@ -1,6 +1,6 @@
 import React,{FC} from 'react'
 import { Input, InputProps } from 'antd'
-import { TodoInputProps } from '../Interfaces'
+import { TodoInputProps } from '../../Interfaces'
 
 const InputField:FC<InputProps & TodoInputProps> = ({placeholder,value,setTodo}) => {
     return(
