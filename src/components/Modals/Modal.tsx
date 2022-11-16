@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
-import { CustomeModalProps, Todos, SetTodos } from "../Interfaces";
-import { InputField, TextAreaField } from "../components";
+import { CustomeModalProps, Todos, SetTodos } from "../../Interfaces";
+import { InputField, TextAreaField } from "..";
 
 import { Modal, ModalProps, Row, Col } from "antd";
 
@@ -10,8 +10,8 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
   title,
   getTodos,
 }) => {
-  const [todo, setTodo] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
+  // const [todo, setTodo] = useState<string>("");
+  // const [description, setDescription] = useState<string>("");
   const [allTodos, setAllTodos] = useState<SetTodos>({
     todo: "",
     description: "",

@@ -29,9 +29,9 @@ const TodoApp: FC = () => {
     setIsModalOpen(true)
   }
   return (
-    <Row gutter={[10, 10]} className="App">
+    <Row  className="App">
       <Col span={24}>
-        <h2>Todo app with TypeScript.</h2>
+        <h2 className="headingOne">Todo app with TypeScript.</h2>
       </Col>
       {/* <Col span={24}>
         <InputField
@@ -41,7 +41,7 @@ const TodoApp: FC = () => {
         />
       </Col> */}
       <Col span={24}>
-        <BasicButton onClick={onOpenModal} text="Add Todo" />
+        <BasicButton className="btn--openModal" onClick={onOpenModal} text="Add Todo" />
       </Col>
       <Col span={24}>
         {allTodos?.map((item) => {
