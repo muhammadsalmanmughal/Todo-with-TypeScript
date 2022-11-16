@@ -1,14 +1,16 @@
 export interface TodoInputProps {
   value: string;
-  setTodo: React.Dispatch<React.SetStateAction<string>>;
+  // setTodo: React.Dispatch<React.SetStateAction<string>>;
+  setTodo: (v: string) => void;
 }
 export interface TodoTextAreaProps {
   value: string;
-  setDescription: React.Dispatch<React.SetStateAction<string>>;
+  // setDescription: React.Dispatch<React.SetStateAction<string>>;
+  setDescription: (v: string) => void;
 }
 export interface AddTodoButton {
   onClick: () => void;
-  text:string,
+  text: string;
 }
 
 // export type InputOrTextModalProps = {
@@ -24,12 +26,12 @@ export interface AddTodoButton {
 // const obj: InputOrTextModalProps = {type: "text", }
 export interface SetTodos {
   todo: string;
-  description:string
+  description: string;
 }
 export interface CustomeModalProps {
   onClose: () => void;
   onOpen: boolean;
-  getTodos (todo:SetTodos): void
+  getTodos(todo: SetTodos): void;
 }
 export interface Todos {
   todo: string;

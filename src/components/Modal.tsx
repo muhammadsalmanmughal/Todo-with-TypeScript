@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { CustomeModalProps, Todos,SetTodos } from "../Interfaces";
+import { CustomeModalProps, Todos, SetTodos } from "../Interfaces";
 import { InputField, TextAreaField } from "../components";
 
 import { Modal, ModalProps, Row, Col } from "antd";
@@ -12,14 +12,18 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
 }) => {
   const [todo, setTodo] = useState<string>("");
   const [description, setDescription] = useState<string>("");
-    const [allTodos, setAllTodos] = useState<SetTodos>({todo:'', description:''});
+  const [allTodos, setAllTodos] = useState<SetTodos>({
+    todo: "",
+    description: "",
+  });
 
   const addTodo = () => {
-    if (todo) {
+    if (allTodos) {
       //   setAllTodos([...allTodos, { todo }]);
       getTodos(allTodos);
-      setTodo("");
-      setDescription("");
+      // setTodo("");
+      // setDescription("");
+      setAllTodos({ todo: "", description: "" });
     }
   };
 
@@ -29,15 +33,15 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
         <Col span={24}>
           <label>Enter Name:</label>
           <InputField
-            value={todo}
-            setTodo={setTodo}
+            value={allTodos.todo}
+            setTodo={(v) => setAllTodos({ ...allTodos, todo: v })}
           />
         </Col>
         <Col span={24}>
           <label>Enter Description:</label>
           <TextAreaField
-            value={description}
-            setDescription={setDescription}
+            value={allTodos.description}
+            setDescription={(v) => setAllTodos({ ...allTodos, description: v })}
           />
         </Col>
       </Row>
