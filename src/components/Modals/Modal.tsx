@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import { CustomeModalProps, Todos, SetTodos } from "../../Interfaces";
 import { InputField, TextAreaField } from "..";
+import {BasicButton} from '../../components'
 
 import { Modal, ModalProps, Row, Col } from "antd";
 
@@ -43,6 +44,9 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
             value={allTodos.description}
             setDescription={(v) => setAllTodos({ ...allTodos, description: v })}
           />
+        </Col>
+        <Col span={24}>
+<BasicButton onClick={addTodo} text='Add Todo'/>
         </Col>
       </Row>
     </Modal>
