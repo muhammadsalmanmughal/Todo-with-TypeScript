@@ -29,8 +29,11 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
   };
 
   return (
-    <Modal title={title} footer={false} open={onOpen} onCancel={onClose}>
+    <Modal footer={false} open={onOpen} onCancel={onClose}>
       <Row gutter={[10, 10]}>
+        <Col>
+        <h1>{title}</h1>
+        </Col>
         <Col span={24}>
           <label>Enter Name:</label>
           <InputField
