@@ -45,6 +45,7 @@ const TodoApp: FC = () => {
       </Col>
       <Col span={24}>
         {allTodos?.map((item) => {
+          console.log('allTodos: ', allTodos);
           return (
             <Card
               style={{ width: 300, marginTop: 16 }}
@@ -54,7 +55,7 @@ const TodoApp: FC = () => {
                 <EllipsisOutlined key="ellipsis" />,
               ]}
             >
-              <Meta title="Card title" description={item.todo} />
+              <Meta title={item.todo} description={item.description} />
             </Card>
           );
         })}

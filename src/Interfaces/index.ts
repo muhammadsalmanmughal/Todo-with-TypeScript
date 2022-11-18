@@ -35,4 +35,5 @@ export interface CustomeModalProps {
 }
 export interface Todos {
   todo: string;
+  description:string
 }
