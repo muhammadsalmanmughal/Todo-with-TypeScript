@@ -7,6 +7,30 @@
   text-align: center;
 }
 
-.headingOne{
+.headingOne {
   /* color:#ffffff; */
+  text-align: center;
+}
+
+.addTodoModal .ant-modal-content {
+  border-radius: 10px;
+}
+
+.addTodoModal .inputField {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.addTodoModal .inputField:hover {
+  border: 1px solid #d9d9d9;
+}
+
+.addTodoModal .inputField:focus {
+  border: 1px solid #d9d9d9;
+}
+
+.addTodoModal .col_btn_Addtodo{
+display: flex;
+justify-content: center;
+align-items: center;
 }

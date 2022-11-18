@@ -1,8 +1,9 @@
 import React, { FC, useState } from "react";
 import { CustomeModalProps, Todos, SetTodos } from "../../Interfaces";
 import { InputField, TextAreaField } from "..";
-import {BasicButton} from '../../components'
+import { BasicButton } from "../../components";
 
+import "../../App.css";
 import { Modal, ModalProps, Row, Col } from "antd";
 
 const PopModal: FC<ModalProps & CustomeModalProps> = ({
@@ -29,14 +30,15 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
   };
 
   return (
-    <Modal footer={false} open={onOpen} onCancel={onClose}>
-      <Row gutter={[10, 10]}>
-        <Col>
-        <h1>{title}</h1>
+    <Modal className="addTodoModal" footer={false} open={onOpen} onCancel={onClose}>
+      <Row gutter={[10, 10]} align='middle' justify='center'>
+        <Col span={24}>
+          <h1 className="headingOne">{title}</h1>
         </Col>
         <Col span={24}>
           <label>Enter Name:</label>
           <InputField
+          className="inputField"
             value={allTodos.todo}
             setTodo={(v) => setAllTodos({ ...allTodos, todo: v })}
           />
@@ -44,12 +46,13 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
         <Col span={24}>
           <label>Enter Description:</label>
           <TextAreaField
+          className="inputField"
             value={allTodos.description}
             setDescription={(v) => setAllTodos({ ...allTodos, description: v })}
           />
         </Col>
-        <Col span={24}>
-<BasicButton onClick={addTodo} text='Add Todo'/>
+        <Col span={24} className='col_btn_Addtodo'>
+          <BasicButton className="btn_Addtodo" onClick={addTodo} text="Add Todo" />
         </Col>
       </Row>
     </Modal>
