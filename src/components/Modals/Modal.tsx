@@ -31,12 +31,12 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
 
   return (
     <Modal className="addTodoModal" footer={false} open={onOpen} onCancel={onClose}>
-      <Row gutter={[10, 10]} align='middle' justify='center'>
+      <Row gutter={[10, 20]} align='middle' justify='center'>
         <Col span={24}>
           <h1 className="headingOne">{title}</h1>
         </Col>
         <Col span={24}>
-          <label>Enter Name:</label>
+          <label className="addTodoModal__label">Enter Name:</label>
           <InputField
           className="inputField"
             value={allTodos.todo}
@@ -44,7 +44,7 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
           />
         </Col>
         <Col span={24}>
-          <label>Enter Description:</label>
+          <label className="addTodoModal__label">Enter Description:</label>
           <TextAreaField
           className="inputField"
             value={allTodos.description}
