@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons";
 
 import "antd/dist/antd.css";
-import "../App.css";
+import "../index.css";
 
 const { Meta } = Card;
 const TodoApp: FC = () => {
@@ -61,7 +61,7 @@ const TodoApp: FC = () => {
         })}
       </Col>
       <Col span={24}>
-        <PopModal onOpen={isModalOpen} onClose={onCloseModal} title='Add Todos' getTodos={(todo:SetTodos)=>showTodos(todo)}/>
+        <PopModal className="addTodoModal" onOpen={isModalOpen} onClose={onCloseModal} title='Add Todos' getTodos={(todo:SetTodos)=>showTodos(todo)}/>
       </Col>
     </Row>
   );

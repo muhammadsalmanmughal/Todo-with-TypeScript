@@ -3,7 +3,7 @@ import { CustomeModalProps, Todos, SetTodos } from "../../Interfaces";
 import { InputField, TextAreaField } from "..";
 import { BasicButton } from "../../components";
 
-import "../../App.css";
+import "./index.css";
 import { Modal, ModalProps, Row, Col } from "antd";
 
 const PopModal: FC<ModalProps & CustomeModalProps> = ({
@@ -11,6 +11,7 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
   onClose,
   title,
   getTodos,
+  className
 }) => {
   // const [todo, setTodo] = useState<string>("");
   // const [description, setDescription] = useState<string>("");
@@ -30,7 +31,7 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
   };
 
   return (
-    <Modal className="addTodoModal" footer={false} open={onOpen} onCancel={onClose}>
+    <Modal className={className} footer={false} open={onOpen} onCancel={onClose}>
       <Row gutter={[10, 20]} align='middle' justify='center'>
         <Col span={24}>
           <h1 className="headingOne">{title}</h1>
