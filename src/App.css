@@ -42,3 +42,15 @@ background: linear-gradient(167deg, rgba(173,94,152,1) 35%, rgba(89,72,239,1) 10
   font-weight: 500;
   font-size: 15px;
 }
+
+.addTodoModal .addTodoModal__btn--Addtodo {
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  width: 100%;
+  font-weight: 500;
+  color:#000
+}
+.addTodoModal .addTodoModal__btn--Addtodo:hover{
+  color:#000
+}

@@ -51,8 +51,8 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
             setDescription={(v) => setAllTodos({ ...allTodos, description: v })}
           />
         </Col>
-        <Col span={24} className='col_btn_Addtodo'>
-          <BasicButton className="btn_Addtodo" onClick={addTodo} text="Add Todo" />
+        <Col span={10} className='col_btn_Addtodo'>
+          <BasicButton className="addTodoModal__btn--Addtodo" onClick={addTodo} text="Add Todo" />
         </Col>
       </Row>
     </Modal>
