@@ -19,7 +19,7 @@ const TodoApp: FC = () => {
   const showTodos = (todos:SetTodos) => {
     console.log('alltodo: ', todos);
     setAllTodos([...allTodos, todos ]);
-    // setIsModalOpen(false)
+    onCloseModal()
   }
 
   const onCloseModal = ():void => {
