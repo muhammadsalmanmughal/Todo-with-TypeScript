@@ -1,10 +1,10 @@
 import React, { FC, useState } from "react";
 import { CustomeModalProps, Todos, SetTodos } from "../../Interfaces";
 import { InputField, TextAreaField } from "..";
-import { BasicButton } from "../../components";
+import { BasicButton, Message } from "../../components";
 
 import "./index.css";
-import { Modal, ModalProps, Row, Col } from "antd";
+import { Modal, ModalProps, Row, Col,message } from "antd";
 
 const PopModal: FC<ModalProps & CustomeModalProps> = ({
   onOpen,
@@ -21,6 +21,9 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
   });
 
   const addTodo = () => {
+    const {todo,description} = allTodos
+    if(!todo) return Message.error('enter todos topic')
+    if(!description) return alert('enter todos dexcription')
     if (allTodos) {
       //   setAllTodos([...allTodos, { todo }]);
       getTodos(allTodos);
