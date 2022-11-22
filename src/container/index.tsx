@@ -14,12 +14,23 @@ import "../index.css";
 const { Meta } = Card;
 const TodoApp: FC = () => {
   const [allTodos, setAllTodos] = useState<Todos[]>([]);
+  console.log('allTodos: ', allTodos);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const showTodos = (todos: SetTodos) => {
-    console.log("alltodo: ", todos);
     setAllTodos([...allTodos, todos]);
     onCloseModal();
+  };
+
+  const deleteTodo = (id: number): void => {
+    setAllTodos(
+      allTodos.filter((item) => {
+        return item.id !== id;
+      })
+    );
+    // const filterTodos = allTodos.filter(item =>{
+    //   return item.id!== id
+    // })
   };
 
   const onCloseModal = (): void => {
@@ -47,12 +58,12 @@ const TodoApp: FC = () => {
           text="Add Todo"
         />
       </Col>
-      <Col span={24} style={{width:'100%'}}>
+      <Col span={24} style={{ width: "100%" }}>
         <Row>
-          {allTodos?.map((item) => {
-            console.log("allTodos: ", allTodos);
+          {allTodos?.map((item, index) => {
             return (
               <Col
+                key={index}
                 span={5}
                 style={{
                   display: "flex",
@@ -61,9 +72,12 @@ const TodoApp: FC = () => {
                 }}
               >
                 <Card
-                  style={{ width: '100%', margin: 10 }}
+                  style={{ width: "100%", margin: 10 }}
                   actions={[
-                    <SettingOutlined key="setting" />,
+                    <SettingOutlined
+                      key="setting"
+                      onClick={() => deleteTodo(item.id)}
+                    />,
                     <EditOutlined key="edit" />,
                     <EllipsisOutlined key="ellipsis" />,
                   ]}

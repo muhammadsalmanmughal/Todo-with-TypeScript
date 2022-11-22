@@ -25,6 +25,7 @@ export interface AddTodoButton {
 
 // const obj: InputOrTextModalProps = {type: "text", }
 export interface SetTodos {
+  id:number
   todo: string;
   description: string;
 }
@@ -34,6 +35,7 @@ export interface CustomeModalProps {
   getTodos(todo: SetTodos): void;
 }
 export interface Todos {
+  id:number,
   todo: string;
   description:string
 }
