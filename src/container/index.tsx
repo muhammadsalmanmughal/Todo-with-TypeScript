@@ -1,12 +1,9 @@
 import React, { FC, useState } from "react";
 import { InputField, BasicButton, PopModal } from "../components";
 import { Todos, SetTodos } from "../Interfaces";
-import { Row, Col, Card } from "antd";
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+
+import { Row, Col, Card, Tooltip, Popconfirm } from "antd";
+import { EditOutlined, CheckOutlined, DeleteOutlined } from "@ant-design/icons";
 
 import "antd/dist/antd.css";
 import "../index.css";
@@ -14,7 +11,7 @@ import "../index.css";
 const { Meta } = Card;
 const TodoApp: FC = () => {
   const [allTodos, setAllTodos] = useState<Todos[]>([]);
-  console.log('allTodos: ', allTodos);
+  console.log("allTodos: ", allTodos);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const showTodos = (todos: SetTodos) => {
@@ -74,12 +71,22 @@ const TodoApp: FC = () => {
                 <Card
                   style={{ width: "100%", margin: 10 }}
                   actions={[
-                    <SettingOutlined
-                      key="setting"
-                      onClick={() => deleteTodo(item.id)}
-                    />,
-                    <EditOutlined key="edit" />,
-                    <EllipsisOutlined key="ellipsis" />,
+                    <Tooltip placement="top" title="Delete Todo.">
+                      <Popconfirm
+                        title="Are you sure to delete this task?"
+                        onConfirm={() => deleteTodo(item.id)}
+                        okText="Yes"
+                        cancelText="No"
+                      >
+                        <DeleteOutlined key="delete" />
+                      </Popconfirm>
+                    </Tooltip>,
+                    <Tooltip placement="top" title="Edit Todo.">
+                      <EditOutlined key="edit" />,
+                    </Tooltip>,
+                    <Tooltip placement="top" title="Mark it complete.">
+                      <CheckOutlined key="done" />,
+                    </Tooltip>,
                   ]}
                 >
                   <Meta title={item.todo} description={item.description} />
