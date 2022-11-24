@@ -39,3 +39,7 @@ export interface Todos {
   todo: string;
   description:string
 }
+
+export interface TodoListProps{
+todos:Todos
+}

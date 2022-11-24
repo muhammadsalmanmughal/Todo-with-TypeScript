@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { InputField, BasicButton, PopModal } from "../components";
+import { InputField, BasicButton, PopModal,TodosList } from "../components";
 import { Todos, SetTodos } from "../Interfaces";
 
 import { Row, Col, Card, Tooltip, Popconfirm } from "antd";
@@ -56,7 +56,7 @@ const TodoApp: FC = () => {
         />
       </Col>
       <Col span={24} style={{ width: "100%" }}>
-        <Row>
+        {/* <Row>
           {allTodos?.map((item, index) => {
             return (
               <Col
@@ -89,12 +89,24 @@ const TodoApp: FC = () => {
                     </Tooltip>,
                   ]}
                 >
-                  <Meta title={item.todo} description={item.description} />
+                  <h3>{item.todo}</h3>
+                  <InputField
+                    className="inputField"
+                    value={item.todo}
+                    setTodo={e => console.log(e)}
+                  />
+                  <p>{item.description}</p>
+                  <InputField
+                    className="inputField"
+                    value={item.description}
+                    setTodo={e => console.log(e)}
+                  />
                 </Card>
               </Col>
             );
           })}
-        </Row>
+        </Row> */}
+        <TodosList todos={allTodos}/>
       </Col>
       <Col span={24}>
         <PopModal
