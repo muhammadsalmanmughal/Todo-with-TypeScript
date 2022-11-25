@@ -41,5 +41,5 @@ export interface Todos {
 }
 
 export interface TodoListProps{
-todos:Todos
+todos:Todos[]
 }
