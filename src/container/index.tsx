@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { InputField, BasicButton, PopModal,TodosList } from "../components";
+import { InputField, BasicButton, PopModal, TodosList } from "../components";
 import { Todos, SetTodos } from "../Interfaces";
 
 import { Row, Col, Card, Tooltip, Popconfirm } from "antd";
@@ -41,13 +41,6 @@ const TodoApp: FC = () => {
       <Col span={24}>
         <h2 className="headingOne">Todo app with TypeScript.</h2>
       </Col>
-      {/* <Col span={24}>
-        <InputField
-          value={todo}
-          placeholder="Enter your todo"
-          setTodo={setTodo}
-        />
-      </Col> */}
       <Col span={24}>
         <BasicButton
           className="btn--openModal"
@@ -56,57 +49,7 @@ const TodoApp: FC = () => {
         />
       </Col>
       <Col span={24} style={{ width: "100%" }}>
-        {/* <Row>
-          {allTodos?.map((item, index) => {
-            return (
-              <Col
-                key={index}
-                span={5}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Card
-                  style={{ width: "100%", margin: 10 }}
-                  actions={[
-                    <Tooltip placement="top" title="Delete Todo.">
-                      <Popconfirm
-                        title="Are you sure to delete this task?"
-                        onConfirm={() => deleteTodo(item.id)}
-                        okText="Yes"
-                        cancelText="No"
-                      >
-                        <DeleteOutlined key="delete" />
-                      </Popconfirm>
-                    </Tooltip>,
-                    <Tooltip placement="top" title="Edit Todo.">
-                      <EditOutlined key="edit" />,
-                    </Tooltip>,
-                    <Tooltip placement="top" title="Mark it complete.">
-                      <CheckOutlined key="done" />,
-                    </Tooltip>,
-                  ]}
-                >
-                  <h3>{item.todo}</h3>
-                  <InputField
-                    className="inputField"
-                    value={item.todo}
-                    setTodo={e => console.log(e)}
-                  />
-                  <p>{item.description}</p>
-                  <InputField
-                    className="inputField"
-                    value={item.description}
-                    setTodo={e => console.log(e)}
-                  />
-                </Card>
-              </Col>
-            );
-          })}
-        </Row> */}
-        <TodosList todos={allTodos}/>
+        <TodosList todos={allTodos} deleteTodo={(id: number) => deleteTodo(id)} />
       </Col>
       <Col span={24}>
         <PopModal

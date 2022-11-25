@@ -1,11 +1,16 @@
 import React, { FC } from "react";
-import { InputField, BasicButton, PopModal } from "../index";
-import { TodoListProps, Todos } from "../../Interfaces";
+import { InputField } from "../index";
+import { TodoListProps } from "../../Interfaces";
 
 import { Row, Col, Card, Tooltip, Popconfirm } from "antd";
 import { EditOutlined, CheckOutlined, DeleteOutlined } from "@ant-design/icons";
 
-const TodosList: FC<TodoListProps> = ({ todos }) => {
+const TodosList: FC<TodoListProps> = ({todos, deleteTodo}) => {
+  // console.log('TodosList: ', props);
+  // const todos = props?.todos
+  const delete_Todo = (id:number) => {
+    deleteTodo(id)
+  }
   return (
     <Row>
       {todos?.map((item, index) => {
@@ -25,7 +30,7 @@ const TodosList: FC<TodoListProps> = ({ todos }) => {
                 <Tooltip placement="top" title="Delete Todo.">
                   <Popconfirm
                     title="Are you sure to delete this task?"
-                    // onConfirm={() => deleteTodo(item.id)}
+                    onConfirm={() => delete_Todo(item.id)}
                     okText="Yes"
                     cancelText="No"
                   >
