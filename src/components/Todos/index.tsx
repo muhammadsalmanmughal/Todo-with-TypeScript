@@ -4,6 +4,7 @@ import { TodoListProps } from "../../Interfaces";
 
 import { Row, Col, Card, Tooltip, Popconfirm } from "antd";
 import { EditOutlined, CheckOutlined, DeleteOutlined } from "@ant-design/icons";
+import './index.css'
 
 const TodosList: FC<TodoListProps> = ({todos, deleteTodo}) => {
   // console.log('TodosList: ', props);
@@ -11,6 +12,7 @@ const TodosList: FC<TodoListProps> = ({todos, deleteTodo}) => {
   const delete_Todo = (id:number) => {
     deleteTodo(id)
   }
+
   return (
     <Row>
       {todos?.map((item, index) => {
@@ -26,6 +28,7 @@ const TodosList: FC<TodoListProps> = ({todos, deleteTodo}) => {
           >
             <Card
               style={{ width: "100%", margin: 10 }}
+              className={`todoCard ${item.isDone ? 'isDone' : ''}`} 
               actions={[
                 <Tooltip placement="top" title="Delete Todo.">
                   <Popconfirm
@@ -40,24 +43,24 @@ const TodosList: FC<TodoListProps> = ({todos, deleteTodo}) => {
                 <Tooltip placement="top" title="Edit Todo.">
                   <EditOutlined key="edit" />,
                 </Tooltip>,
-                <Tooltip placement="top" title="Mark it complete.">
+                <Tooltip placement="top" title="Mark it done.">
                   <CheckOutlined key="done" />,
                 </Tooltip>,
               ]}
             >
               {/* <Meta title={item.todo} description={item.description} /> */}
-              <h3>{item.todo}</h3>
-              <InputField
+              <h2 className="todoCard_Title">{item.todo}</h2>
+              {/* <InputField
                 className="inputField"
                 value={item.todo}
                 setTodo={(e) => console.log(e)}
-              />
-              <p>{item.description}</p>
-              <InputField
+              /> */}
+              <p className="todoCard_Description">{item.description}</p>
+              {/* <InputField
                 className="inputField"
                 value={item.description}
                 setTodo={(e) => console.log(e)}
-              />
+              /> */}
             </Card>
           </Col>
         );

@@ -1,0 +1,28 @@
+.ant-row .ant-col .todoCard {
+    margin: 10px;
+    width: 100%;
+    border-radius: 10px;
+    text-align: left;
+
+}
+
+.ant-row .ant-col .isDone {
+    background: #75be75;
+    color: #fff;
+}
+
+.ant-row .ant-col .todoCard .ant-card-actions {
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.isDone .todoCard_Title {
+    color: #fff;
+    margin: 0;
+}
+
+.isDone .todoCard_Description {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
