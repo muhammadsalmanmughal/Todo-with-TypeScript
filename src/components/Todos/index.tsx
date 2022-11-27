@@ -47,7 +47,8 @@ const TodosList: FC<TodoListProps> = ({todos, deleteTodo, isTodoDone}) => {
                   <CheckOutlined key="done" onClick={() => isTodoDone(item.id)}/>,
                 </Tooltip>,
               ]}
-            >
+            > 
+            {item.isDone && <span className="badge"></span>}
               {/* <Meta title={item.todo} description={item.description} /> */}
               <h2 className="todoCard_Title">{item.todo}</h2>
               {/* <InputField
