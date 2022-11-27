@@ -30,6 +30,14 @@ const TodoApp: FC = () => {
     // })
   };
 
+  const markDone = (id: number) => {
+    setAllTodos(
+      allTodos.map((item) =>
+        item.id === id ? { ...item, isDone: !item.isDone } : item
+      )
+    );
+  };
+
   const onCloseModal = (): void => {
     setIsModalOpen(false);
   };
@@ -49,7 +57,11 @@ const TodoApp: FC = () => {
         />
       </Col>
       <Col span={24} style={{ width: "100%" }}>
-        <TodosList todos={allTodos} deleteTodo={(id: number) => deleteTodo(id)} />
+        <TodosList
+          todos={allTodos}
+          deleteTodo={(id: number) => deleteTodo(id)}
+          isTodoDone={(id: number) => markDone(id)}
+        />
       </Col>
       <Col span={24}>
         <PopModal

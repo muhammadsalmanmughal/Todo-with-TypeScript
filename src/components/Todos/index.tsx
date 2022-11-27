@@ -6,7 +6,7 @@ import { Row, Col, Card, Tooltip, Popconfirm } from "antd";
 import { EditOutlined, CheckOutlined, DeleteOutlined } from "@ant-design/icons";
 import './index.css'
 
-const TodosList: FC<TodoListProps> = ({todos, deleteTodo}) => {
+const TodosList: FC<TodoListProps> = ({todos, deleteTodo, isTodoDone}) => {
   // console.log('TodosList: ', props);
   // const todos = props?.todos
   const delete_Todo = (id:number) => {
@@ -44,7 +44,7 @@ const TodosList: FC<TodoListProps> = ({todos, deleteTodo}) => {
                   <EditOutlined key="edit" />,
                 </Tooltip>,
                 <Tooltip placement="top" title="Mark it done.">
-                  <CheckOutlined key="done" />,
+                  <CheckOutlined key="done" onClick={() => isTodoDone(item.id)}/>,
                 </Tooltip>,
               ]}
             >

@@ -28,7 +28,7 @@ export interface SetTodos {
   id: number;
   todo: string;
   description: string;
-  isDone: boolean
+  isDone: boolean;
 }
 export interface CustomeModalProps {
   onClose: () => void;
@@ -39,10 +39,11 @@ export interface Todos {
   id: number;
   todo: string;
   description: string;
-  isDone: boolean
+  isDone: boolean;
 }
 
 export interface TodoListProps {
   todos: Todos[];
   deleteTodo(id: number): void;
+  isTodoDone(id: number): void;
 }
