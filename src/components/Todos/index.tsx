@@ -19,7 +19,7 @@ const TodosList: FC<TodoListProps> = ({todos, deleteTodo, isTodoDone}) => {
         return (
           <Col
             key={index}
-            span={5}
+            xs={24} sm={24} md={12} lg={12} xl={5}
             style={{
               display: "flex",
               justifyContent: "center",
