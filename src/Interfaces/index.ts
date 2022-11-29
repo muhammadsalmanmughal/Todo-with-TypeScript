@@ -33,7 +33,7 @@ export interface SetTodos {
 export interface CustomeModalProps {
   onClose: () => void;
   onOpen: boolean;
-  getTodos(todo: SetTodos): void;
+  getTodos ? (todo: SetTodos): void;
 }
 export interface Todos {
   id: number;

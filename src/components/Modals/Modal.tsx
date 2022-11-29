@@ -27,7 +27,7 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
     if (!todo || !description)
       return message.error("Please fil all the fileds");
     if (allTodos) {
-      getTodos({ ...allTodos, id: Date.now(), isDone: false });
+      getTodos && getTodos({ ...allTodos, id: Date.now(), isDone: false });
       setAllTodos({ ...allTodos, todo: "", description: "" });
     }
   };
