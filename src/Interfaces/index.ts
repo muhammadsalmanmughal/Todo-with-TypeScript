@@ -30,16 +30,22 @@ export interface SetTodos {
   description: string;
   isDone: boolean;
 }
-export interface CustomeModalProps {
-  onClose: () => void;
-  onOpen: boolean;
-  getTodos ? (todo: SetTodos): void;
-}
+
 export interface Todos {
   id: number;
   todo: string;
   description: string;
   isDone: boolean;
+}
+
+export interface CustomeModalProps {
+  onClose: () => void;
+  onOpen: boolean;
+  getTodos?(todo: SetTodos): void;
+  isEditModal: boolean;
+  todoData?: Todos[];
+  todoNameVal?:string;
+  todoDesVal?:string;
 }
 
 export interface TodoListProps {

@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { InputField } from "../index";
-import { TodoListProps } from "../../Interfaces";
+import { TodoListProps, Todos } from "../../Interfaces";
 import { PopModal } from "../../components";
 
 import { Row, Col, Card, Tooltip, Popconfirm } from "antd";
@@ -10,7 +10,7 @@ import "./index.css";
 const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
   // console.log('TodosList: ', props);
   // const todos = props?.todos
-
+  const [editTodo,setEditTodo] = useState<Todos[]>([])
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const delete_Todo = (id: number) => {
@@ -21,6 +21,15 @@ const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
     setIsModalOpen(false);
   };
   const onOpenModal = (): void => {
+    setIsModalOpen(true);
+  };
+
+  const filterTodoToEdit = (id: number) => {
+    const filteredTodo = todos.filter((item) => {
+      return item.id == id;
+    });
+    setEditTodo(filteredTodo)
+    console.log("filteredTodo", filteredTodo);
     setIsModalOpen(true);
   };
 
@@ -56,13 +65,7 @@ const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
                   </Popconfirm>
                 </Tooltip>,
                 <Tooltip placement="top" title="Edit Todo.">
-                  <EditOutlined
-                    key="edit"
-                    onClick={
-                      () => onOpenModal()
-                    }
-                  />
-                  ,
+                  <EditOutlined key="edit" onClick={() => filterTodoToEdit(item.id)} />,
                 </Tooltip>,
                 <Tooltip placement="top" title="Mark it done.">
                   <CheckOutlined
@@ -92,7 +95,12 @@ const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
         );
       })}
       <Col span={24}>
-        <PopModal onOpen={isModalOpen} onClose={onCloseModal} />
+        <PopModal
+          onOpen={isModalOpen}
+          onClose={onCloseModal}
+          isEditModal={true}
+          todoData={editTodo}
+        />
       </Col>
     </Row>
   );

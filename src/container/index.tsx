@@ -70,6 +70,7 @@ const TodoApp: FC = () => {
           onClose={onCloseModal}
           title="Add Todos"
           getTodos={(todo: SetTodos) => showTodos(todo)}
+          isEditModal={false}
         />
       </Col>
     </Row>

@@ -12,9 +12,10 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
   title,
   getTodos,
   className,
+  todoData
 }) => {
   // const [todo, setTodo] = useState<string>("");
-  // const [description, setDescription] = useState<string>("");
+  // const [data, setData] = useState(todoData);
   const [allTodos, setAllTodos] = useState<SetTodos>({
     id: 0,
     todo: "",
