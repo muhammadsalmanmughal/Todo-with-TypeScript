@@ -10,7 +10,7 @@ import "./index.css";
 const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
   // console.log('TodosList: ', props);
   // const todos = props?.todos
-  const [editTodo,setEditTodo] = useState<Todos[]>([])
+  const [editTodo,setEditTodo] = useState<Todos>()
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const delete_Todo = (id: number) => {
@@ -25,7 +25,7 @@ const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
   };
 
   const filterTodoToEdit = (id: number) => {
-    const filteredTodo = todos.filter((item) => {
+    const filteredTodo = todos.find((item) => {
       return item.id == id;
     });
     setEditTodo(filteredTodo)

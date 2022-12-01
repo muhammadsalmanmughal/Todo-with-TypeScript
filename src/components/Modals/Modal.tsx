@@ -14,6 +14,7 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
   className,
   todoData
 }) => {
+  console.log('PopModal_todoData: ', todoData);
   // const [todo, setTodo] = useState<string>("");
   // const [data, setData] = useState(todoData);
   const [allTodos, setAllTodos] = useState<SetTodos>({
@@ -48,7 +49,7 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
           <label className="addTodoModal__label">Enter Name:</label>
           <InputField
             className="inputField"
-            value={allTodos.todo}
+            value={allTodos.todo || todoData?.todo || '' }
             setTodo={(v) => setAllTodos({ ...allTodos, todo: v })}
           />
         </Col>
@@ -56,7 +57,7 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
           <label className="addTodoModal__label">Enter Description:</label>
           <TextAreaField
             className="inputField"
-            value={allTodos.description}
+            value={allTodos.description || todoData?.description || ''}
             setDescription={(v) => setAllTodos({ ...allTodos, description: v })}
           />
         </Col>

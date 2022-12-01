@@ -43,7 +43,7 @@ export interface CustomeModalProps {
   onOpen: boolean;
   getTodos?(todo: SetTodos): void;
   isEditModal: boolean;
-  todoData?: Todos[];
+  todoData?: Todos;
   todoNameVal?:string;
   todoDesVal?:string;
 }
