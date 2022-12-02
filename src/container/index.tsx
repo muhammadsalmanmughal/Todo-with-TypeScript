@@ -47,7 +47,7 @@ const TodoApp: FC = () => {
   return (
     <Row className="App">
       <Col span={24}>
-        <h2 className="headingOne">Todo app with TypeScript.</h2>
+        <h2 className="">Todo app with TypeScript.</h2>
       </Col>
       <Col span={24}>
         <BasicButton

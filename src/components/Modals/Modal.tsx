@@ -12,7 +12,8 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
   title,
   getTodos,
   className,
-  todoData
+  todoData,
+  isEditModal
 }) => {
   console.log('PopModal_todoData: ', todoData);
   // const [todo, setTodo] = useState<string>("");
@@ -65,7 +66,7 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
           <BasicButton
             className="addTodoModal__btn--Addtodo"
             onClick={addTodo}
-            text="Add Todo"
+            text={isEditModal ? "Update Todo" : 'Add Todo'}
           />
         </Col>
       </Row>

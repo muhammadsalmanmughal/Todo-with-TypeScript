@@ -96,10 +96,12 @@ const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
       })}
       <Col span={24}>
         <PopModal
+         className="editTodoModal"
           onOpen={isModalOpen}
           onClose={onCloseModal}
           isEditModal={true}
           todoData={editTodo}
+          title='Edit Todo'
         />
       </Col>
     </Row>
