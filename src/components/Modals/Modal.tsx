@@ -66,7 +66,7 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
           <BasicButton
             className="addTodoModal__btn--Addtodo"
             onClick={addTodo}
-            text={isEditModal ? "Update Todo" : 'Add Todo'}
+            text={isEditModal ? "Edit Todo" : 'Add Todo'}
           />
         </Col>
       </Row>

@@ -10,7 +10,7 @@ import "./index.css";
 const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
   // console.log('TodosList: ', props);
   // const todos = props?.todos
-  const [editTodo,setEditTodo] = useState<Todos>()
+  const [editTodo, setEditTodo] = useState<Todos>();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const delete_Todo = (id: number) => {
@@ -28,7 +28,7 @@ const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
     const filteredTodo = todos.find((item) => {
       return item.id == id;
     });
-    setEditTodo(filteredTodo)
+    setEditTodo(filteredTodo);
     console.log("filteredTodo", filteredTodo);
     setIsModalOpen(true);
   };
@@ -64,16 +64,23 @@ const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
                     <DeleteOutlined key="delete" />
                   </Popconfirm>
                 </Tooltip>,
+
                 <Tooltip placement="top" title="Edit Todo.">
-                  <EditOutlined key="edit" onClick={() => filterTodoToEdit(item.id)} />,
+                  {item.isDone !== true ? (
+                    <EditOutlined
+                      key="edit"
+                      onClick={() => filterTodoToEdit(item.id)}
+                    />
+                  ) : (
+                    ""
+                  )}
                 </Tooltip>,
                 <Tooltip placement="top" title="Mark it done.">
                   <CheckOutlined
                     key="done"
                     onClick={() => isTodoDone(item.id)}
                   />
-                  ,
-                </Tooltip>,
+                </Tooltip>
               ]}
             >
               {item.isDone && <span className="badge"></span>}
@@ -96,12 +103,12 @@ const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
       })}
       <Col span={24}>
         <PopModal
-         className="editTodoModal"
+          className="editTodoModal"
           onOpen={isModalOpen}
           onClose={onCloseModal}
           isEditModal={true}
           todoData={editTodo}
-          title='Edit Todo'
+          title="Edit Todo"
         />
       </Col>
     </Row>
