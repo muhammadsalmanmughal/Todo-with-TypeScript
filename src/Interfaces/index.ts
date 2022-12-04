@@ -46,6 +46,7 @@ export interface CustomeModalProps {
   todoData?: Todos;
   todoNameVal?:string;
   todoDesVal?:string;
+  isEditMode?:boolean
 }
 
 export interface TodoListProps {

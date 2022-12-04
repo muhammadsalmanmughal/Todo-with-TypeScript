@@ -12,6 +12,8 @@ const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
   // const todos = props?.todos
   const [editTodo, setEditTodo] = useState<Todos>();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  
+  const [editMode, setEditMode] = useState<boolean>(false);
 
   const delete_Todo = (id: number) => {
     deleteTodo(id);
@@ -19,7 +21,9 @@ const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
 
   const onCloseModal = (): void => {
     setIsModalOpen(false);
+    setEditMode(false)
   };
+  
   const onOpenModal = (): void => {
     setIsModalOpen(true);
   };
@@ -31,6 +35,7 @@ const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
     setEditTodo(filteredTodo);
     console.log("filteredTodo", filteredTodo);
     setIsModalOpen(true);
+    setEditMode(true)
   };
 
   return (
@@ -109,6 +114,7 @@ const TodosList: FC<TodoListProps> = ({ todos, deleteTodo, isTodoDone }) => {
           isEditModal={true}
           todoData={editTodo}
           title="Edit Todo"
+          isEditMode={editMode}
         />
       </Col>
     </Row>

@@ -47,14 +47,18 @@ const TodoApp: FC = () => {
   return (
     <Row className="App">
       <Col span={24}>
-        <h2 className="">Todo app with TypeScript.</h2>
-      </Col>
-      <Col span={24}>
-        <BasicButton
-          className="btn--openModal"
-          onClick={onOpenModal}
-          text="Add Todo"
-        />
+        <Row justify='center' align='middle'>
+          <Col span={24}>
+            <h2 className="">Todo app with TypeScript.</h2>
+          </Col>
+          <Col span={24}>
+            <BasicButton
+              className="btn--openModal"
+              onClick={onOpenModal}
+              text="Add Todo"
+            />
+          </Col>
+        </Row>
       </Col>
       <Col span={24} style={{ width: "100%" }}>
         <TodosList
