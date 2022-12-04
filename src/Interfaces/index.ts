@@ -44,9 +44,10 @@ export interface CustomeModalProps {
   getTodos?(todo: SetTodos): void;
   isEditModal: boolean;
   todoData?: Todos;
-  todoNameVal?:string;
-  todoDesVal?:string;
-  isEditMode?:boolean
+  todoNameVal?: string;
+  todoDesVal?: string;
+  isEditMode?: boolean;
+  editTodoId?: number;
 }
 
 export interface TodoListProps {

@@ -14,9 +14,10 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
   className,
   todoData,
   isEditModal,
-  isEditMode
+  isEditMode,
+  editTodoId
 }) => {
-  console.log('PopModal_todoData: ', isEditMode);
+  console.log("PopModal_todoData: ", editTodoId);
   // const [todo, setTodo] = useState<string>("");
   // const [data, setData] = useState(todoData);
   const [allTodos, setAllTodos] = useState<SetTodos>({
@@ -26,6 +27,9 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
     isDone: false,
   });
 
+  const [editTodo, setEditTodo] = useState(todoData?.todo);
+  const [editDescription, setEditDescription] = useState(todoData?.description);
+
   const addTodo = () => {
     const { todo, description } = allTodos;
     if (!todo || !description)
@@ -34,6 +38,15 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
       getTodos && getTodos({ ...allTodos, id: Date.now(), isDone: false });
       setAllTodos({ ...allTodos, todo: "", description: "" });
     }
+  };
+
+  const changeTodo = (e: any) => {
+    console.log("changeTodo_e: ", e);
+    if(isEditMode){
+      setEditTodo(e.target.value)
+
+    }
+    setAllTodos({ ...allTodos, todo: e });
   };
 
   return (
@@ -51,15 +64,16 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
           <label className="addTodoModal__label">Enter Name:</label>
           <InputField
             className="inputField"
-            value={allTodos.todo || todoData?.todo || '' }
-            setTodo={(v) => setAllTodos({ ...allTodos, todo: v })}
+            value={allTodos.todo || todoData?.todo || ""}
+            // setTodo={(v) => setAllTodos({ ...allTodos, todo: v })}
+            setTodo={(v) => changeTodo(v)}
           />
         </Col>
         <Col span={24}>
           <label className="addTodoModal__label">Enter Description:</label>
           <TextAreaField
             className="inputField"
-            value={allTodos.description || todoData?.description || ''}
+            value={allTodos.description || todoData?.description || ""}
             setDescription={(v) => setAllTodos({ ...allTodos, description: v })}
           />
         </Col>
@@ -67,7 +81,7 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
           <BasicButton
             className="addTodoModal__btn--Addtodo"
             onClick={addTodo}
-            text={isEditModal ? "Edit Todo" : 'Add Todo'}
+            text={isEditModal ? "Edit Todo" : "Add Todo"}
           />
         </Col>
       </Row>
