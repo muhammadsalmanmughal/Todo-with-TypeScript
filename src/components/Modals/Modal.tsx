@@ -17,7 +17,7 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
   isEditMode,
   editTodoId
 }) => {
-  console.log("PopModal_todoData: ", editTodoId);
+  console.log("PopModal_todoData: ", isEditMode);
   // const [todo, setTodo] = useState<string>("");
   // const [data, setData] = useState(todoData);
   const [allTodos, setAllTodos] = useState<SetTodos>({
@@ -44,7 +44,7 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
     console.log("changeTodo_e: ", e);
     if(isEditMode){
       setEditTodo(e.target.value)
-
+      
     }
     setAllTodos({ ...allTodos, todo: e });
   };

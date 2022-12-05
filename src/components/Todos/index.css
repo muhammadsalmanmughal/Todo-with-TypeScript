@@ -7,6 +7,7 @@
     overflow: hidden;
     background: rgb(94, 161, 173);
     background: linear-gradient(167deg, rgba(94, 161, 173, 1) 35%, rgba(72, 239, 164, 1) 100%);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .ant-row .ant-col .badge::before {
@@ -30,7 +31,6 @@
 .ant-row .ant-col .todoCard .ant-card-actions {
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
-    border: 1px solid #bababa;
 }
 
 .todoCard_Title {
