@@ -9,6 +9,9 @@
     background: linear-gradient(167deg, rgba(94, 161, 173, 1) 35%, rgba(72, 239, 164, 1) 100%);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
+.ant-row .ant-col .todoCard:nth-child(3n) {
+    background: red;
+}
 
 .ant-row .ant-col .badge::before {
     content: 'Completed';

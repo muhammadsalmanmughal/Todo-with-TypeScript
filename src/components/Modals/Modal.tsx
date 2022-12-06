@@ -15,7 +15,7 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
   todoData,
   isEditModal,
   isEditMode,
-  editTodoId
+  editTodoId,
 }) => {
   console.log("PopModal_todoData: ", isEditMode);
   // const [todo, setTodo] = useState<string>("");
@@ -42,11 +42,12 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
 
   const changeTodo = (e: any) => {
     console.log("changeTodo_e: ", e);
-    if(isEditMode){
-      setEditTodo(e.target.value)
-      
+    if (isEditMode) {
+      setEditTodo(e.target.value);
+      console.log("editTodo: ", editTodo);
+    } else {
+      setAllTodos({ ...allTodos, todo: e });
     }
-    setAllTodos({ ...allTodos, todo: e });
   };
 
   return (
@@ -64,7 +65,10 @@ const PopModal: FC<ModalProps & CustomeModalProps> = ({
           <label className="addTodoModal__label">Enter Name:</label>
           <InputField
             className="inputField"
-            value={allTodos.todo || todoData?.todo || ""}
+            value={
+              !isEditMode ? allTodos?.todo : todoData?.todo ? editTodo : ""
+              // allTodos.todo || todoData?.todo || ""
+            }
             // setTodo={(v) => setAllTodos({ ...allTodos, todo: v })}
             setTodo={(v) => changeTodo(v)}
           />
